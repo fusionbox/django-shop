@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.aggregates import Sum
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth import User
+from django.contrib.auth.models import User
 from django.conf import settings
 from polymorphic.polymorphic_model import PolymorphicModel
 from shop.cart.modifiers_pool import cart_modifiers_pool
