@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 from decimal import Decimal
 from distutils.version import LooseVersion
-from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.aggregates import Sum
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 from polymorphic.polymorphic_model import PolymorphicModel
 from shop.cart.modifiers_pool import cart_modifiers_pool
 from shop.util.fields import CurrencyField
@@ -73,7 +73,7 @@ class BaseCart(models.Model):
     without having to register with us.
     """
     # If the user is null, that means this is used for a session
-    user = models.OneToOneField(User, null=True, blank=True)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
 
